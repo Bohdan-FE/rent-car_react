@@ -7,6 +7,7 @@ import { persistStore, FLUSH,
   PURGE,
   REGISTER, persistReducer } from 'redux-persist'
 import { carsReducer } from './carsSlice';
+import { useDispatch } from 'react-redux'
 
 
 const authPersistConfig = {
@@ -31,5 +32,8 @@ export const store = configureStore({
       },
     }),
 });
+
+export type AppDispatch = typeof store.dispatch
+export const useAppDispatch: () => AppDispatch = useDispatch
 
 export const persistor = persistStore(store)

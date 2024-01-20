@@ -1,19 +1,13 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getCarsThunk } from "../../redux/thunk"
+import { useSelector } from "react-redux"
 import { carsSelector } from "../../redux/selectors"
+import { CarCard } from "../CarCard/CarCard"
 
 export const CarList = () => {
-    const dispatch = useDispatch()
     const cars = useSelector(carsSelector)
 
-    useEffect(() => {
-        dispatch(getCarsThunk())
-    }, [])
-
     return (
-        <ul>
-            {cars.map(car => <li key={car.id}><p>{car.make}</p><img src={car.img} alt={car.make} /></li>)}
+        <ul className="grid grid-cols-4 gap-x-[29px] gap-y-[50px]">
+            {cars.map(car => <CarCard key={car.id} car={car} />)}
         </ul>
     )
 }

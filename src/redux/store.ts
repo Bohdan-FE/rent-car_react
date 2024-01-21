@@ -1,29 +1,19 @@
-import storage from 'redux-persist/lib/storage';
 import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, FLUSH,
   REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
-  REGISTER, persistReducer } from 'redux-persist'
+  REGISTER} from 'redux-persist'
 import { carsReducer } from './carsSlice';
 import { useDispatch } from 'react-redux'
+import { persistedReducer } from "./favoriteCarsSlice";
 
-
-const authPersistConfig = {
-  key: 'auth',
-  storage,
-  whitelist: ['token'],
-};
-
-const themePersistConfig = {
-  key: 'theme',
-  storage,
-};
 
 export const store = configureStore({
   reducer: {
-       cars: carsReducer
+    cars: carsReducer,
+    favoriteCars: persistedReducer
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

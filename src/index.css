@@ -23,5 +23,6 @@
 @layer base {
   html {
     font-family: "Manrope", sans-serif;
+    color: rgba(18, 20, 23, 1)
   }
 }

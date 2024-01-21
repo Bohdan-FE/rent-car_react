@@ -19,13 +19,14 @@ export const ModelSelect = ({ cars }: { cars: Car[] | [] }) => {
                 <div className="px-[18px] py-[14px] rounded-[14px] bg-selectBg flex items-center justify-between cursor-pointer" onClick={() => setIsActive(!isActive)}>
                     <p>{selectedModel ? selectedModel : 'Enter text'}</p>
                     <ArrowSvg className={`${isActive && 'rotate-180'}`} />
+                    <input type="text" id="model" hidden defaultValue={selectedModel} />
                 </div>
                 {isActive && <div className="h-[272px] w-full pl-[18px] pr-2 py-[14px] bg-white absolute top-[52px] z-10 rounded-[14px] left-0 border-[1px] border-[rgba(18, 20, 23, 0.05)] overflow-hidden">
                     <div className="overflow-y-scroll h-full text-[16px] text-greyText">
                         {models.map(model =>
                             <div className="mb-2 last:mb-0" key={model}>
-                                <input type="radio" id={model} name='model' value={model} hidden defaultChecked={selectedModel === model} />
-                                <label htmlFor={model} className={`cursor-pointer ${selectedModel === model && 'text-blackText'}`} onClick={() => { setSelectedModel(model); setIsActive(!isActive) }}>{model}</label>
+                                <input type="radio" id={model} name='model' value={model} hidden checked={selectedModel === model} onChange={() => { setSelectedModel(model); setIsActive(!isActive) }} />
+                                <label htmlFor={model} className={`cursor-pointer ${selectedModel === model && 'text-blackText'}`}>{model}</label>
                             </div>)}
                     </div>
                 </div>}

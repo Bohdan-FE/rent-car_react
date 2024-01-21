@@ -4,6 +4,7 @@ import { PriceSelect } from "../PriceSelect/PriceSelect"
 import { Car } from "../../types/cars"
 import { getAllCars } from "../../api/api"
 import { MileageInput } from "../MileageInput/MileageInput"
+import { SubmitBtn } from "../Buttons/Buttons"
 
 
 export const FilterForm = () => {
@@ -22,12 +23,19 @@ export const FilterForm = () => {
         getCars()
     }, [])
 
+    const handlerSubmit = (e) => {
+        e.preventDefault();
+        console.log(e)
+    }
+
+
     return (
-        <div className="flex justify-center align-middle mb-[50px]">
-            <form action="" className="flex gap-x-[18px]">
+        <div className="flex justify-center mb-[50px]">
+            <form onSubmit={handlerSubmit} className="flex gap-x-[18px] items-end">
                 <ModelSelect cars={cars} />
                 <PriceSelect cars={cars} />
                 <MileageInput />
+                <SubmitBtn />
             </form>
         </div>
     )

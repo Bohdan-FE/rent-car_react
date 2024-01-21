@@ -20,3 +20,9 @@ export const HeartBtnActive = ({ handlerRemoveFavorite, car }: { handlerRemoveFa
         <button className='absolute top-[14px] right-[14px]' onClick={() => handlerRemoveFavorite(car)}><HeartActive /></button>
     )
 }
+
+export const SubmitBtn = () => {
+    return (
+        <button className="text-white flex items-center justify-center w-[136px] h-12 bg-btnColor rounded-[14px] hover:bg-btnHover" type='submit'>Search</button>
+    )
+}

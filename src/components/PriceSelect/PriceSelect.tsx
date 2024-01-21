@@ -24,13 +24,14 @@ export const PriceSelect = ({ cars }: { cars: Car[] | [] }) => {
                 <div className="px-[18px] py-[14px] rounded-[14px] bg-selectBg flex items-center justify-between cursor-pointer" onClick={() => setIsActive(!isActive)}>
                     <p>{`To ${selectedPrice}$`}</p>
                     <ArrowSvg className={`${isActive && 'rotate-180'}`} />
+                    <input type="text" id="price" hidden defaultValue={selectedPrice} />
                 </div>
                 {isActive && <div className="h-[272px] w-full pl-[18px] pr-2 py-[14px] bg-white absolute top-[52px] z-10 rounded-[14px] left-0 border-[1px] border-[rgba(18, 20, 23, 0.05)] overflow-hidden">
                     <div className="overflow-y-scroll h-full text-[16px] text-greyText">
                         {prices.map(price =>
                             <div className="mb-2 last:mb-0" key={price}>
-                                <input type="radio" id={price} name='model' value={price} hidden defaultChecked={selectedPrice === price} />
-                                <label htmlFor={price} className={`cursor-pointer ${selectedPrice === price && 'text-blackText'}`} onClick={() => { setSelectedPrice(price); setIsActive(!isActive) }}>{price}</label>
+                                <input type="radio" id={price} name='model' value={price} hidden checked={selectedPrice === price} onChange={() => { setSelectedPrice(price); setIsActive(!isActive) }} />
+                                <label htmlFor={price} className={`cursor-pointer ${selectedPrice === price && 'text-blackText'}`}>{price}</label>
                             </div>)}
                     </div>
                 </div>}

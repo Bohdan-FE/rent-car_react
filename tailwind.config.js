@@ -19,7 +19,8 @@ export default {
         'greySpace': 'rgba(18, 20, 23, 0.1)',
         'btnColor': '#3470FF',
         'btnHover': '#0B44CD',
-        'selectBg': '#F7F7FB'
+        'selectBg': '#F7F7FB',
+        'inputBorder': 'rgba(138, 138, 137, 0.2)'
       },
       
     },

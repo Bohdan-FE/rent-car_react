@@ -2,10 +2,9 @@ import { useEffect, useState } from "react"
 import ArrowSvg from '../../icons/arrowIcon.svg?react'
 import { Car } from "../../types/cars"
 
-export const ModelSelect = ({ cars }: { cars: Car[] | [] }) => {
+export const ModelSelect = ({ cars, setSelectedModel, selectedModel }: { cars: Car[] | [], setSelectedModel: React.Dispatch<React.SetStateAction<string>>, selectedModel: string }) => {
     const [models, setModels] = useState<[] | string[]>([])
     const [isActive, setIsActive] = useState<boolean>(false)
-    const [selectedModel, setSelectedModel] = useState<string>('');
 
     useEffect(() => {
         const models = new Set(cars.map(car => car.model))

@@ -14,5 +14,6 @@ interface favoriteCarState {
 
 export const carsSelector = (state: carState) => state.cars.cars
 
+export const favoriteCarsSelector = (state: favoriteCarState) => state.favoriteCars.favoriteCars
 
-export const favoriteCarsSelector  = (state: favoriteCarState) => state.favoriteCars.favoriteCars
+export const paramsSelector = (state: { params: {params: Params} }) => state.params.params

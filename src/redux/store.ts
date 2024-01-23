@@ -8,12 +8,14 @@ import { persistStore, FLUSH,
 import { carsReducer } from './carsSlice';
 import { useDispatch } from 'react-redux'
 import { persistedReducer } from "./favoriteCarsSlice";
+import { paramsReducer } from "./paramsSlice";
 
 
 export const store = configureStore({
   reducer: {
     cars: carsReducer,
-    favoriteCars: persistedReducer
+    favoriteCars: persistedReducer,
+    params: paramsReducer,
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -3,10 +3,9 @@ import ArrowSvg from '../../icons/arrowIcon.svg?react'
 import { extractNumberFromString } from "../../helpers/extractNumber"
 import { Car } from "../../types/cars"
 
-export const PriceSelect = ({ cars }: { cars: Car[] | [] }) => {
+export const PriceSelect = ({ cars, selectedPrice, setSelectedPrice }: { cars: Car[] | [], selectedPrice: string, setSelectedPrice: React.Dispatch<React.SetStateAction<string>> }) => {
     const [prices, setPrices] = useState<[] | string[]>([])
     const [isActive, setIsActive] = useState<boolean>(false)
-    const [selectedPrice, setSelectedPrice] = useState<string>('');
 
     useEffect(() => {
         const pricesString = new Set(cars.map(car => car.rentalPrice))

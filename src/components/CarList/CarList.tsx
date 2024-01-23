@@ -1,5 +1,3 @@
-import { useSelector } from "react-redux"
-import { carsSelector } from "../../redux/selectors"
 import { CarCard } from "../CarCard/CarCard"
 import { Car } from "../../types/cars"
 

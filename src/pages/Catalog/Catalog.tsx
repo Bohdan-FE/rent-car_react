@@ -1,10 +1,12 @@
 import { CarList } from "../../components/CarList/CarList"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getCarsThunk } from "../../redux/thunk"
 import { useAppDispatch } from "../../redux/store"
 import { useSelector } from "react-redux"
 import { carsSelector, paramsSelector } from "../../redux/selectors"
 import { FilterForm } from "../../components/FilterForm/FilterForm"
+import { LoadMoreBtn } from "../../components/Buttons/Buttons"
+import { changePage, changeParams } from "../../redux/paramsSlice"
 
 export const Catalog = () => {
     const dispatch = useAppDispatch()
@@ -15,10 +17,15 @@ export const Catalog = () => {
         dispatch(getCarsThunk(params))
     }, [params])
 
+    const handleLoadMore = () => {
+        if (params.page) dispatch(changePage(1 + params.page))
+    }
+
     return (
         <div className="container mx-auto px-[6px]">
             <FilterForm />
             <CarList cars={cars} />
+            <LoadMoreBtn handleLoadMore={handleLoadMore} />
         </div>
     )
 }

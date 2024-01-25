@@ -26,3 +26,11 @@ export const SubmitBtn = () => {
         <button className="text-white flex items-center justify-center w-[136px] h-12 bg-btnColor rounded-[14px] hover:bg-btnHover" type='submit'>Search</button>
     )
 }
+
+export const LoadMoreBtn = ({ handleLoadMore }: { handleLoadMore: () => void }) => {
+    return (
+        <div className="flex justify-center mt-[100px] mb-[150px]">
+            <button className="font-medium leading-6 text-btnColor underline underline-offset-1 hover:text-btnHover" type='button' onClick={handleLoadMore}>Load more</button>
+        </div>
+    )
+}

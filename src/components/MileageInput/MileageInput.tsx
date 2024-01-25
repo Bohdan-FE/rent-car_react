@@ -22,12 +22,12 @@ export const MileageInput = () => {
                 <div className="relative">
                     <input className="w-[160px] h-[48px] pl-[72px] text-[18px] leading-5 font-medium bg-selectBg rounded-tl-[14px] rounded-bl-[14px] focus:outline-none border-r-[1px] border-r-inputBorder"
                         type="text" id="from" value={fromValue} onChange={onChange} />
-                    <label className="absolute text-[18px] leading-5 font-medium top-[14px] left-6">From</label>
+                    <label className="absolute text-[18px] leading-5 font-medium top-[14px] left-6" htmlFor="from">From</label>
                 </div>
                 <div className="relative">
-                    <input className="relative w-[160px] h-[48px] pl-[48px] text-[18px] leading-5 font-medium bg-selectBg rounded-tr-[14px] rounded-br-[14px] focus:outline-none"
+                    <input className="relative w-[160px] h-[48px] pl-[50px] text-[18px] leading-5 font-medium bg-selectBg rounded-tr-[14px] rounded-br-[14px] focus:outline-none"
                         type="text" id="to" value={toValue} onChange={onChange} />
-                    <label className="absolute text-[18px] leading-5 font-medium top-[14px] left-6">To</label>
+                    <label className="absolute text-[18px] leading-5 font-medium top-[14px] left-6" htmlFor="to">To</label>
                 </div>
             </div>
         </div>

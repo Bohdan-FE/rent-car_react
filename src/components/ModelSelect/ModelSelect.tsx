@@ -18,7 +18,6 @@ export const ModelSelect = ({ cars, setSelectedModel, selectedModel }: { cars: C
                 <div className="px-[18px] py-[14px] rounded-[14px] bg-selectBg flex items-center justify-between cursor-pointer" onClick={() => setIsActive(!isActive)}>
                     <p>{selectedModel ? selectedModel : 'Enter text'}</p>
                     <ArrowSvg className={`${isActive && 'rotate-180'}`} />
-                    <input type="text" id="model" hidden defaultValue={selectedModel} />
                 </div>
                 {isActive && <div className="h-[272px] w-full pl-[18px] pr-2 py-[14px] bg-white absolute top-[52px] z-10 rounded-[14px] left-0 border-[1px] border-[rgba(18, 20, 23, 0.05)] overflow-hidden">
                     <div className="overflow-y-scroll h-full text-[16px] text-greyText">

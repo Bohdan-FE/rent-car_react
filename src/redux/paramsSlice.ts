@@ -8,10 +8,13 @@ const paramsSlice = createSlice({
     reducers: {
         changeParams(state, { payload }){
             state.params = { page: 1, ...payload }
+        },
+        changePage(state, { payload }){
+            state.params.page = payload 
         }
     },
 })
 
 
 export const paramsReducer = paramsSlice.reducer;
-export const { changeParams } = paramsSlice.actions
+export const { changeParams, changePage } = paramsSlice.actions

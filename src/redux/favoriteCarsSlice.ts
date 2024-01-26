@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { persistReducer } from 'redux-persist'
 import { Car } from '../types/cars';
 
-const initialState: { favoriteCars: [] | Car[]} = { favoriteCars: [] };
+const initialState: { favoriteCars: Car[]} = { favoriteCars: [] };
 
 const favoriteCarsSlice = createSlice({
     name: 'favoriteCars',

@@ -3,7 +3,18 @@ import { getCars } from "../api/api";
 import axios, { AxiosError } from "axios";
 
 
+
 export const getCarsThunk = createAsyncThunk('cars/getCars', async (params: Params, thunkAPI) => {
+    try {
+        return await getCars(params, 12)
+    }
+    catch (error) {
+         return thunkAPI.rejectWithValue('Nothing is found');
+    }
+})
+
+
+export const getNextPageThunk = createAsyncThunk('cars/getNextPage', async (params: Params, thunkAPI) => {
     try {
         return await getCars(params, 12)
     }
@@ -13,3 +24,5 @@ export const getCarsThunk = createAsyncThunk('cars/getCars', async (params: Para
         }
     }
 })
+
+

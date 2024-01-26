@@ -1,12 +1,13 @@
 import { CarList } from "../../components/CarList/CarList"
-import { useEffect, useState } from "react"
-import { getCarsThunk } from "../../redux/thunk"
+import { useEffect } from "react"
+import { getCarsThunk, getNextPageThunk } from "../../redux/thunk"
 import { useAppDispatch } from "../../redux/store"
 import { useSelector } from "react-redux"
 import { carsSelector, paramsSelector } from "../../redux/selectors"
 import { FilterForm } from "../../components/FilterForm/FilterForm"
 import { LoadMoreBtn } from "../../components/Buttons/Buttons"
-import { changePage, changeParams } from "../../redux/paramsSlice"
+import { changePage } from "../../redux/paramsSlice"
+
 
 export const Catalog = () => {
     const dispatch = useAppDispatch()
@@ -15,17 +16,18 @@ export const Catalog = () => {
 
     useEffect(() => {
         dispatch(getCarsThunk(params))
-    }, [params])
+    }, [params.model, params.rentalPrice])
 
     const handleLoadMore = () => {
-        if (params.page) dispatch(changePage(1 + params.page))
+        dispatch(getNextPageThunk({ ...params, page: params.page + 1 }))
+        dispatch(changePage(params.page + 1))
     }
-
+    console.log(cars)
     return (
         <div className="container mx-auto px-[6px]">
             <FilterForm />
-            <CarList cars={cars} />
-            <LoadMoreBtn handleLoadMore={handleLoadMore} />
+            {cars.error ? <div><p>{cars.error}</p></div> : <CarList cars={cars.cars} />}
+            {params.page < 3 && <LoadMoreBtn handleLoadMore={handleLoadMore} />}
         </div>
     )
 }

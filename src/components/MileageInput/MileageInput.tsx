@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react"
+import { ChangeEvent, useState } from "react"
 
 export const MileageInput = () => {
     const [fromValue, setFromValue] = useState<string>('')

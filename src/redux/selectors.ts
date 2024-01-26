@@ -1,19 +1,30 @@
 import { Car } from "../types/cars";
 
-interface carState {
+interface CarState {
     cars: {
         cars: Car[] | []
-    }
+        error: string | null 
+    } 
 }
 
-interface favoriteCarState {
+interface FavoriteCarState {
     favoriteCars: {
         favoriteCars: Car[] | []
     }
 }
 
-export const carsSelector = (state: carState) => state.cars.cars
+interface ParamsState {
+    params: {
+        params: {
+            page: number;
+            model?: string;
+            rentalPrice?: string;
+        } 
+    }
+}
 
-export const favoriteCarsSelector = (state: favoriteCarState) => state.favoriteCars.favoriteCars
+export const carsSelector = (state: CarState) => state.cars
 
-export const paramsSelector = (state: { params: {params: Params} }) => state.params.params
+export const favoriteCarsSelector = (state: FavoriteCarState) => state.favoriteCars.favoriteCars
+
+export const paramsSelector = (state: ParamsState) => state.params.params

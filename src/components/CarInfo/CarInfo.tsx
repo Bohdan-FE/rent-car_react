@@ -1,21 +1,18 @@
-import { useEffect } from "react"
+import { createPortal } from 'react-dom';
 import { Car } from "../../types/cars"
 
 export const CarInfo = ({ car }: { car: Car }) => {
+    const portalContainer = document.getElementById('portal');
 
-    useEffect(() => {
-        const portalDiv = document.createElement('div');
-        portalDiv.classList.add('portal');
-        document.body.appendChild(portalDiv);
-        return () => {
-            portalDiv.remove();
-        }
-    }, [])
+    if (!portalContainer) {
+        return
+    }
 
-    return (
-        <div className="">
+    return createPortal(
+        <div className="absolute top-0 left-0 w-full h-full">
             <img src={car.img} alt={car.model} />
-
         </div>
+        , portalContainer
     )
+
 }

@@ -22,7 +22,7 @@ export const Catalog = () => {
         dispatch(getNextPageThunk({ ...params, page: params.page + 1 }))
         dispatch(changePage(params.page + 1))
     }
-    console.log(cars)
+
     return (
         <div className="container mx-auto px-[6px]">
             <FilterForm />

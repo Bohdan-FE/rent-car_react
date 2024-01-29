@@ -3,9 +3,9 @@ import HeartActive from '../../icons/heartActive.svg?react'
 import { Car } from '../../types/cars';
 
 
-export const LearnMoreBtn = () => {
+export const LearnMoreBtn = ({ setIsOpenModal }: { setIsOpenModal: () => void}) => {
     return (
-        <button className="text-white flex items-center justify-center w-full h-11 bg-btnColor rounded-xl hover:bg-btnHover">Learn more</button>
+        <button className="text-white flex items-center justify-center w-full h-11 bg-btnColor rounded-xl hover:bg-btnHover" onClick={()=>setIsOpenModal(true)}>Learn more</button>
     )
 }
 
